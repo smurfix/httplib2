@@ -1023,6 +1023,14 @@ class Http(object):
                 pass
             try:
                 response = conn.getresponse()
+                content = b""
+                if method == "HEAD":
+                    conn.close()
+                else:
+                    content = response.read()
+                response = Response(response)
+                if method != "HEAD":
+                    content = _decompressContent(response, content)
             except (http.client.BadStatusLine, http.client.ResponseNotReady):
                 # If we get a BadStatusLine on the first try then that means
                 # the connection just went stale, so retry regardless of the
@@ -1046,16 +1054,6 @@ class Http(object):
                     continue
                 else:
                     raise
-            else:
-                content = b""
-                if method == "HEAD":
-                    conn.close()
-                else:
-                    content = response.read()
-                response = Response(response)
-                if method != "HEAD":
-                    content = _decompressContent(response, content)
-
             break
         return (response, content)
 
