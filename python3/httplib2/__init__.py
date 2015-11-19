@@ -1004,16 +1004,18 @@ class Http(object):
                 errno_ = (e.args[0].errno if isinstance(e.args[0], socket.error) else e.errno)
                 if errno_ in (errno.ENETUNREACH, errno.EADDRNOTAVAIL) and i < RETRIES:
                     continue  # retry on potentially transient errors
+                if errno_ in (errno.ECONNRESET, errno.EPIPE) and i == 1:
+                    conn.close()
+                    conn.connect()
+                    continue  # retry on closed connection
                 raise
             except http.client.HTTPException:
                 if conn.sock is None:
+                    conn.close()
                     if i < RETRIES-1:
-                        conn.close()
                         conn.connect()
                         continue
-                    else:
-                        conn.close()
-                        raise
+                    raise
                 if i < RETRIES-1:
                     conn.close()
                     conn.connect()
@@ -1035,25 +1037,22 @@ class Http(object):
                 # If we get a BadStatusLine on the first try then that means
                 # the connection just went stale, so retry regardless of the
                 # number of RETRIES set.
+                conn.close()
                 if not seen_bad_status_line and i == 1:
                     i = 0
                     seen_bad_status_line = True
-                    conn.close()
                     conn.connect()
                     continue
-                else:
-                    conn.close()
-                    raise
+                raise
             except socket.timeout:
                 raise
-            except (socket.error, http.client.HTTPException):
+            except (socket.error, http.client.HTTPException) as e:
                 conn.close()
-                if i == 0:
-                    conn.close()
+                errno_ = (e.args[0].errno if isinstance(e.args[0], socket.error) else e.errno)
+                if errno_ in (errno.ECONNRESET, errno.EPIPE) and i == 1:
                     conn.connect()
                     continue
-                else:
-                    raise
+                raise
             break
         return (response, content)
 
