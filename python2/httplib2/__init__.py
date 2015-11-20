@@ -1044,7 +1044,7 @@ class HTTPSConnectionWithTimeout(httplib.HTTPSConnection):
                         raise CertificateHostnameMismatch(
                             'Server presented certificate that does not match '
                             'host %s: %s' % (hostname, cert), hostname, cert)
-            except ssl_SSLError, e:
+            except (ssl_SSLError, CertificateHostnameMismatch), e:
                 if sock:
                     sock.close()
                 if self.sock:
@@ -1054,7 +1054,7 @@ class HTTPSConnectionWithTimeout(httplib.HTTPSConnection):
                 # to get at more detailed error information, in particular
                 # whether the error is due to certificate validation or
                 # something else (such as SSL protocol mismatch).
-                if e.errno == ssl.SSL_ERROR_SSL:
+                if hasattr(e, 'errno') and e.errno == ssl.SSL_ERROR_SSL:
                     raise SSLHandshakeError(e)
                 else:
                     raise
