@@ -1,2 +1,1 @@
-use_system_cacerts.patch
 ssl-mismatch-check.patch

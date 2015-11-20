@@ -123,9 +123,8 @@ DEFAULT_MAX_REDIRECTS = 5
 # Which headers are hop-by-hop headers by default
 HOP_BY_HOP = ['connection', 'keep-alive', 'proxy-authenticate', 'proxy-authorization', 'te', 'trailers', 'transfer-encoding', 'upgrade']
 
-# Default CA certificates file bundled with httplib2.
-CA_CERTS = os.path.join(
-        os.path.dirname(os.path.abspath(__file__ )), "cacerts.txt")
+# Use system CA certificates
+CA_CERTS = "/etc/ssl/certs/ca-certificates.crt"
 
 def _get_end2end_headers(response):
     hopbyhop = list(HOP_BY_HOP)

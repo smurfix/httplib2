@@ -190,9 +190,8 @@ try:
     import ca_certs_locater
     CA_CERTS = ca_certs_locater.get()
 except ImportError:
-    # Default CA certificates file bundled with httplib2.
-    CA_CERTS = os.path.join(
-        os.path.dirname(os.path.abspath(__file__ )), "cacerts.txt")
+    # Use system CA certificates
+    CA_CERTS = "/etc/ssl/certs/ca-certificates.crt"
 
 # Which headers are hop-by-hop headers by default
 HOP_BY_HOP = ['connection', 'keep-alive', 'proxy-authenticate', 'proxy-authorization', 'te', 'trailers', 'transfer-encoding', 'upgrade']

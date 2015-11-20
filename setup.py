@@ -61,7 +61,6 @@ A comprehensive HTTP client library, ``httplib2`` supports many features left ou
         """,
         package_dir=pkgdir,
         packages=['httplib2'],
-        package_data={'httplib2': ['*.txt']},
         classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
