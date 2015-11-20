@@ -39,3 +39,4 @@ nosetests.xml
 
 # httplib2
 .cache
+/.pybuild

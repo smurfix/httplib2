@@ -1,0 +1,6 @@
+/*.log
+/files
+/*.substvars
+/*.debhelper
+/python-httplib2
+/python3-httplib2
