@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=httplib2
+VERSION = $(shell head -n1 debian/changelog | sed -e 's/.*(//;s/+.*).*//')
+
+%:
+	dh $@ --buildsystem pybuild --with python2,python3
+
+get-orig-source:
+	wget https://github.com/jcgregorio/httplib2/archive/v${VERSION}.tar.gz -O ../python-httplib2-${VERSION}.tar.gz
+	tar fxz ../python-httplib2-${VERSION}.tar.gz -C ../ && mv ../httplib2-${VERSION} ../python-httplib2-${VERSION}+dfsg
+	find ../python-httplib2-${VERSION}+dfsg -name "*searchindex.js" -delete
+	find ../python-httplib2-${VERSION}+dfsg -name "*interface.js" -delete
+	tar czf ../python-httplib2_${VERSION}+dfsg.orig.tar.gz ../python-httplib2-${VERSION}+dfsg
+	rm -fr ../python-httplib2-${VERSION}.tar.gz ../python-httplib2-${VERSION}+dfsg

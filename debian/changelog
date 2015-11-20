@@ -1,0 +1,257 @@
+python-httplib2 (0.9.1+dfsg-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Ilias Tsitsimpis ]
+  * New upstream release (Closes: #794750).
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Tue, 08 Sep 2015 13:55:42 +0300
+
+python-httplib2 (0.9+dfsg-2) unstable; urgency=medium
+
+  * New maintainer. (Closes: #755302)
+  * debian/control: bump Standars-Version (no changes required).
+
+ -- Andrea Colangelo <warp10@debian.org>  Sun, 28 Sep 2014 12:27:43 +0200
+
+python-httplib2 (0.9+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/patches/use_system_cacerts.patch:
+    - Refresh for new upstream release.
+  * debian/control:
+    - Update Homepage field to the new location.
+    - Bump Standards-Version to 3.9.5, no changes required.
+  * debian/copyright:
+    - Adjust copyright years.
+  * debian/python3-httplib2.docs:
+    - Install documentation for python3-httplib2 package too.
+  * debian/rules:
+    - Switch to pybuild.
+    - Provide get-orig-source target.
+  * debian/watch:
+    - Point to GitHub portal.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Mon, 28 Apr 2014 22:33:06 +0200
+
+python-httplib2 (0.8-2) unstable; urgency=low
+
+  * Team upload.
+
+  [ Vincent Bernat ]
+  * Upload to unstable.
+  * Fix CVE-2013-2037 with the appropriate patch. Closes: #706602.
+
+ -- Vincent Bernat <bernat@debian.org>  Fri, 16 Aug 2013 17:53:42 +0200
+
+python-httplib2 (0.8-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/patches/use_system_cacerts.patch:
+    - Refresh for new upstream release.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Mon, 18 Mar 2013 22:41:38 +0100
+
+python-httplib2 (0.7.7-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/patches/use_system_cacerts.patch:
+    - Do not ship bundled certificates, package already uses system ones,
+      provided by ca-certificates.
+  * debian/rules:
+    - Remove stale egg-info created during build.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sun, 25 Nov 2012 15:24:29 +0100
+
+python-httplib2 (0.7.6-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Bump Standards-Version to 3.9.4, no changes required.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sat, 10 Nov 2012 10:57:02 +0100
+
+python-httplib2 (0.7.5-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/patches/egg-info.patch:
+    - Removed, no longer needed.
+  * debian/patches/use_system_cacerts.patch:
+    - Refresh for new upstream release.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sat, 08 Sep 2012 11:56:49 +0200
+
+python-httplib2 (0.7.4-2) unstable; urgency=low
+
+  * debian/patches/egg-info.patch:
+    - Complete egg-info data with missing details.
+  * debian/compat:
+    - Bump compatibility level to 9.
+  * debian/rules:
+    - Delete build directory during clean phase (Closes: #671108).
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sun, 27 May 2012 12:07:29 +0200
+
+python-httplib2 (0.7.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/use_system_cacerts.patch:
+    - Refresh for new upstream release.
+  * debian/watch:
+    - Use code.google.com to watch for upstream releases.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Fri, 16 Mar 2012 22:19:04 +0100
+
+python-httplib2 (0.7.2-2) unstable; urgency=low
+
+  * debian/patches/use_system_cacerts.patch:
+    - Use system ca certificates, not the bundled ones, to always use
+      the most recent ones, thanks to Marc Deslauriers (Closes: #652105).
+  * debian/control:
+    - Depend on ca-certificates.
+    - Bump Standards-Version to 3.9.3.
+  * debian/copyright:
+    - Format now points to copyright-format site.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Thu, 23 Feb 2012 21:42:54 +0100
+
+python-httplib2 (0.7.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/ssl-validation.patch:
+    - Removed, applied upstream.
+  * debian/patches/godaddy-certificate.patch:
+    - Removed, applied upstream.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Mon, 14 Nov 2011 21:07:54 +0100
+
+python-httplib2 (0.7.1-2) unstable; urgency=low
+
+  * debian/patches/ssl-validation.patch:
+    - Cherry-pick patch from upstream hg to fix incorrect checks for
+      SSL certificate domain names.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Tue, 13 Sep 2011 20:32:44 +0200
+
+python-httplib2 (0.7.1-1) unstable; urgency=low
+
+  * New upstream release.
+    - Install cacerts.txt file (Closes: #631841).
+  * debian/patches/godaddy-certificate.patch:
+    - Cherry-pick GoDaddy root certificate from upstream to fix access
+      to Launchpad services (Closes: #631164).
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Tue, 28 Jun 2011 21:53:34 +0200
+
+python-httplib2 (0.7.0-1) unstable; urgency=low
+
+  * New upstream release.
+    - Do not hardcode $Rev$ in the User-Agent field (Closes: #609576).
+  * debian/copyright:
+    - Update copyright information.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Mon, 13 Jun 2011 23:47:18 +0200
+
+python-httplib2 (0.6.0-5) unstable; urgency=low
+
+  * Python transition:
+    - Add support for python2.7
+    - Drop support for python2.5
+  * debian/control:
+    - Bump Standards-Version to 3.9.2, no changes required.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sat, 16 Apr 2011 15:15:29 +0200
+
+python-httplib2 (0.6.0-4) unstable; urgency=low
+
+  * Team upload.
+
+  [ Luca Falavigna ]
+  * debian/control:
+    - Add Breaks: ${python:Breaks} to generate correct dependencies, this
+      also makes lintian override useless now.
+
+  [ Piotr Ożarowski ]
+  * Bump minimum required python3-all version to 3.1.2-10
+    (and rebuild for /usr/lib/python3/dist-packages transtion)
+
+ -- Piotr Ożarowski <piotr@debian.org>  Sun, 26 Sep 2010 22:10:33 +0200
+
+python-httplib2 (0.6.0-3) unstable; urgency=medium
+
+  * debian/control:
+    - Depend on ${python3:Depends} for python3-httplib2 to generate
+      correct dependencies for Python 3.X (Closes: #591956).
+    - Bump Standards-Version to 3.9.1, no changes required.
+  * debian/python-httplib2.lintian-overrides:
+    - Override old-versioned-python-dependency, needs fixing in Lintian.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sat, 07 Aug 2010 15:39:46 +0200
+
+python-httplib2 (0.6.0-2) unstable; urgency=low
+
+  * Switch to format 3.0 (quilt).
+  * Switch to dh_python2.
+  * debian/control:
+    - Add python3-httplib2 package.
+    - Bump Standards-Version to 3.8.4, no changes required.
+  * debian/rules:
+    - Install files for python3-httplib2 package.
+  * debian/watch: 
+    - Use googlecode.debian.net provider.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sun, 27 Jun 2010 10:59:40 +0200
+
+python-httplib2 (0.6.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Add new copyright holders.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Sun, 03 Jan 2010 17:12:21 +0100
+
+python-httplib2 (0.5.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #461200) (LP: #373589).
+  * debian/compat:
+    - Bump compat level to 7.
+  * debian/control:
+    - New Maintainer (Closes: #542786).
+    - Add Debian Python Modules Team to Uploaders.
+    - Switch to python section to match override.
+    - Remove cdbs from Build-Depends.
+    - Bump debhelper required version to 7.2.18.
+    - Do not build-depend on python-all-dev, depend on python instead.
+    - Move python-support to Build-Depends-Indep.
+    - Bump Standards-Version to 3.8.3.
+    - Add Homepage field.
+    - Add XS-Python-Version field.
+    - Add Vcs-* fields to store Debian packaging.
+    - Set Architecture to all.
+    - Remove ${shlibs:Depends} from Depends.
+    - Fix spelling errors in package description.
+  * debian/copyright:
+    - Adjust copyright informations.
+  * debian/README.Debian:
+    - Removed, already provided by upstream README.
+  * debian/pycompat:
+    - Removed, useless.
+  * debian/rules:
+    - Switch to debhelper 7.
+  * debian/watch:
+    - Provide a watch file.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Wed, 26 Aug 2009 20:16:16 +0200
+
+python-httplib2 (0.2.0-2) unstable; urgency=low
+
+  * reformat description closes: #392116
+  * add missing-build-dependency python-all-dev
+
+ -- Matthias Jahn <jahn.matthias@freenet.de>  Wed, 11 Oct 2006 08:39:48 +0200
+
+python-httplib2 (0.2.0-1) unstable; urgency=low
+
+  * Initial upload. closes: #386944
+
+ -- Matthias Jahn <jahn.matthias@freenet.de>  Mon, 31 Jul 2006 11:24:22 +0200
+

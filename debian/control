@@ -1,0 +1,51 @@
+Source: python-httplib2
+Section: python
+Priority: optional
+Maintainer: Andrea Colangelo <warp10@debian.org>
+Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 9),
+               python-all (>= 2.6.6-3~),
+               python3-all (>= 3.1.2-10)
+Standards-Version: 3.9.6
+X-Python-Version: >= 2.4
+Homepage: https://github.com/jcgregorio/httplib2
+Vcs-Svn: svn://anonscm.debian.org/python-modules/packages/python-httplib2/trunk/
+Vcs-Browser: http://anonscm.debian.org/viewsvn/python-modules/packages/python-httplib2/trunk/
+
+Package: python-httplib2
+Architecture: all
+Depends: ${python:Depends},
+         ${misc:Depends},
+         ca-certificates
+Description: comprehensive HTTP client library written for Python
+ httplib2.py supports many features left out of other HTTP libraries.
+  * HTTP and HTTPS
+  * Keep-Alive
+  * Authentication
+  * Caching
+  * All Methods
+  * Redirects
+  * Compression
+  * Lost update support
+  * Unit Tested
+ .
+ This package provides module for python2 series.
+
+Package: python3-httplib2
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends},
+         ca-certificates
+Description: comprehensive HTTP client library written for Python3
+ httplib2.py supports many features left out of other HTTP libraries.
+  * HTTP and HTTPS
+  * Keep-Alive
+  * Authentication
+  * Caching
+  * All Methods
+  * Redirects
+  * Compression
+  * Lost update support
+  * Unit Tested
+ .
+ This package provides module for python3 series.
