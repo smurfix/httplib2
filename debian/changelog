@@ -1,3 +1,9 @@
+python-httplib2 (0.9.2+git1-ca9e0b1b5-1) smurf; urgency=medium
+
+  * Merge.
+
+ -- Matthias Urlichs <matthias@urlichs.de>  Fri, 20 Nov 2015 05:41:51 +0100
+
 python-httplib2 (0.9.2-1) smurf; urgency=medium
 
   * Merge.
